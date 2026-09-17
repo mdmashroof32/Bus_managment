@@ -94,7 +94,7 @@ export default function PassengerApp() {
             </div>
             <div>
               <span style={{ fontWeight: 800, fontSize: '0.92rem', color: '#0f172a', display: 'block', lineHeight: 1.1 }}>One Delhi App</span>
-              <span style={{ fontSize: '0.68rem', color: 'var(--text-muted)' }}>DTC &amp; DIMTS Mobile Transit</span>
+              <span style={{ fontSize: '0.68rem', color: 'var(--text-muted)' }}>State Bus Transit Mobile</span>
             </div>
           </div>
           <span className="badge badge-success" style={{ fontSize: '0.65rem' }}>

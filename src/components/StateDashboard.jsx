@@ -40,7 +40,7 @@ export default function StateDashboard() {
         <div>
           <h2 style={{ fontSize: '1.25rem', color: '#0f172a', display: 'flex', alignItems: 'center', gap: '10px', margin: 0, fontWeight: 800 }}>
             <Building2 size={22} color="#dc2626" />
-            DTC State Depot &amp; EV Fleet Live Dashboard
+            State Bus Depot &amp; EV Fleet Live Dashboard
           </h2>
           <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)', margin: 0, marginTop: '2px' }}>
             Real-time geospatial tracking, depot operations, EV charging status, and fleet telemetry across Delhi NCR
@@ -121,7 +121,7 @@ export default function StateDashboard() {
               className={statusFilter === 'ALL' ? 'btn-primary' : 'btn-secondary'}
               style={{ padding: '8px 14px', fontSize: '0.82rem' }}
             >
-              All DTC Fleet
+              All Fleet
             </button>
             <button
               onClick={() => setStatusFilter('ON_ROUTE')}

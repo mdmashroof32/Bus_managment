@@ -210,7 +210,7 @@ export default function DelhiMasterAdmin({ incidents, setIncidents }) {
       <div className="glass-panel" style={{ padding: '24px' }}>
         <h3 style={{ fontSize: '1.05rem', color: '#0f172a', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px', margin: 0, fontWeight: 700 }}>
           <Building2 size={20} color="#7c3aed" />
-          Official DTC &amp; DIMTS Depot Operational Status
+          Official State Bus Depot Operational Status
         </h3>
 
         <div style={{ overflowX: 'auto', marginTop: '14px' }}>

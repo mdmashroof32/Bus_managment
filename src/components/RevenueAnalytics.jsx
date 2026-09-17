@@ -115,7 +115,7 @@ export default function RevenueAnalytics() {
             </div>
             <div>
               <h2 style={{ fontSize: '1.25rem', color: '#0f172a', margin: 0, fontWeight: 800 }}>
-                DTC &amp; DIMTS Revenue &amp; Fare Collection Center
+                State Bus Transit Revenue &amp; Fare Collection Center
               </h2>
               <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)', margin: 0, marginTop: '2px' }}>
                 Real-time ticketing revenue, NCMC digital payments, Pink Pass govt reimbursement &amp; ETM audits

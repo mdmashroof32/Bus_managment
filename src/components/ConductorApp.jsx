@@ -181,7 +181,7 @@ export default function ConductorApp() {
             <div>FARE AMOUNT: <strong>₹ {printedTicket.fare}.00</strong></div>
             <div>ISSUED AT: {printedTicket.time}</div>
             <div style={{ color: '#cbd5e1', margin: '4px 0' }}>--------------------------------</div>
-            <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>VALID ON ALL DTC &amp; DIMTS BUSES</div>
+            <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>VALID ON ALL STATE BUSES</div>
           </div>
         )}
 

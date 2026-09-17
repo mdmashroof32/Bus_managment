@@ -62,7 +62,7 @@ export default function Header({ activeTab, setActiveTab }) {
             <div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <h1 style={{ fontSize: '1.2rem', color: '#0f172a', margin: 0, letterSpacing: '-0.01em', fontWeight: 800 }}>
-                  DELHI TRANSIT <span style={{ color: '#2563eb' }}>DTC & DIMTS</span>
+                  STATE BUS <span style={{ color: '#2563eb' }}>TRANSIT</span>
                 </h1>
                 <span className="badge badge-success" style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
                   <Radio size={10} className="pulse-emergency" />

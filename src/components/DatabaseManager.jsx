@@ -28,7 +28,7 @@ export default function DatabaseManager() {
   const schemaTables = [
     {
       name: 'depots',
-      description: 'Master list of DTC & DIMTS EV and CNG Bus Depots across Delhi',
+      description: 'Master list of State Bus EV and CNG Bus Depots across Delhi',
       primaryKey: 'id',
       columns: [
         { name: 'id', type: 'VARCHAR(50)', pk: true },
@@ -427,7 +427,7 @@ export default function DatabaseManager() {
         <div className="glass-panel" style={{ padding: '20px' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
             <span style={{ fontWeight: 700, fontSize: '0.9rem' }}>
-              Official DTC &amp; DIMTS PostgreSQL / PostGIS Schema DDL Script
+              Official State Bus Transit PostgreSQL / PostGIS Schema DDL Script
             </span>
             <a
               href="/src/db/schema.sql"
