@@ -314,7 +314,22 @@ app.post('/api/sql/execute', (req, res) => {
   }
 });
 
+import path from 'node:path';
+import fs from 'node:fs';
+import { fileURLToPath } from 'node:url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const distPath = path.join(__dirname, '..', 'dist');
+
+if (fs.existsSync(distPath)) {
+  app.use(express.static(distPath));
+  app.get(/^(?!\/api).*/, (req, res) => {
+    res.sendFile(path.join(distPath, 'index.html'));
+  });
+}
+
 // Start Server
 app.listen(PORT, () => {
-  console.log(`Delhi Transport Express Server running on http://localhost:${PORT}`);
+  console.log(`Delhi Transport Express Server running on port ${PORT}`);
 });
