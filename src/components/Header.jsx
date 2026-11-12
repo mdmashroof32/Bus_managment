@@ -8,17 +8,14 @@ import {
   Radio,
   Sliders,
   CreditCard,
-  HeartHandshake,
   IndianRupee,
   Database,
   LogOut,
-  ShieldCheck,
 } from 'lucide-react';
 import { delhiStats } from '../data/delhiTransportData';
 
 export default function Header({ activeTab, setActiveTab, isAdminAuthenticated, onAdminLogout }) {
   const tabs = [
-    { id: 'admin-login', label: 'Admin Login', icon: ShieldCheck, badge: 'ADMIN' },
     { id: 'master-admin', label: 'Admin Dashboard', icon: Sliders },
     { id: 'revenue', label: 'Revenue & Fare', icon: IndianRupee, badge: 'FINANCE' },
     { id: 'dtc-fleet', label: 'Fleet & Depots', icon: Bus },
@@ -85,7 +82,7 @@ export default function Header({ activeTab, setActiveTab, isAdminAuthenticated, 
                 type="button"
               >
                 <Icon size={16} /> {tab.label}
-                {tab.badge && <span className={`nav-badge ${tab.badge === 'ADMIN' ? 'admin' : tab.badge === 'AI' ? 'ai' : ''}`}>{tab.badge}</span>}
+                {tab.badge && <span className={`nav-badge ${tab.badge === 'AI' ? 'ai' : ''}`}>{tab.badge}</span>}
               </button>
             );
           })}

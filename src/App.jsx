@@ -14,16 +14,8 @@ export default function App() {
   const [activeTab, setActiveTab] = useState('admin-login');
   const [isAdminAuthenticated, setIsAdminAuthenticated] = useState(false);
 
-  const handleNavigation = (tab) => {
-    if (tab === 'master-admin' && !isAdminAuthenticated) {
-      setActiveTab('admin-login');
-      return;
-    }
-    setActiveTab(tab);
-  };
-
   const handleAdminLogin = () => {
-    // Demo-only access state; this is not authentication or authorization.
+    // Demo-only access state; production access must be verified by a server.
     setIsAdminAuthenticated(true);
     setActiveTab('master-admin');
   };
@@ -33,20 +25,25 @@ export default function App() {
     setActiveTab('admin-login');
   };
 
+  if (!isAdminAuthenticated) {
+    return (
+      <div className="app-container">
+        <AdminLogin onLogin={handleAdminLogin} />
+      </div>
+    );
+  }
+
   return (
     <div className="app-container">
       <Header
         activeTab={activeTab}
-        setActiveTab={handleNavigation}
+        setActiveTab={setActiveTab}
         isAdminAuthenticated={isAdminAuthenticated}
         onAdminLogout={handleAdminLogout}
       />
 
       <main className="main-content">
-        {activeTab === 'admin-login' && <AdminLogin onLogin={handleAdminLogin} />}
-        {activeTab === 'master-admin' && isAdminAuthenticated && (
-          <DelhiMasterAdmin />
-        )}
+        {activeTab === 'master-admin' && <DelhiMasterAdmin />}
         {activeTab === 'revenue' && <RevenueAnalytics />}
         {activeTab === 'dtc-fleet' && <StateDashboard />}
         {activeTab === 'one-delhi' && <RoleDashboard role="user" />}
