@@ -1,12 +1,37 @@
 # Render Infrastructure as Code (Blueprint) configuration
-# https://render.com/docs/blueprint-spec
+# Each portal is deployed as its own Render web service and also supports
+# /dashboard, /user, and /conductor paths on that service.
 
 services:
   - type: web
-    name: delhi-bus-management
+    name: delhi-bus-dashboard
     env: node
     buildCommand: npm install && npm run build
     startCommand: npm run start
     envVars:
       - key: NODE_ENV
         value: production
+      - key: VITE_DEFAULT_VIEW
+        value: dashboard
+
+  - type: web
+    name: delhi-bus-user
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: VITE_DEFAULT_VIEW
+        value: user
+
+  - type: web
+    name: delhi-bus-conductor
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: VITE_DEFAULT_VIEW
+        value: conductor
