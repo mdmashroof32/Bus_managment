@@ -2,7 +2,9 @@ import React, { useEffect, useRef, useState } from 'react';
 import { AlertTriangle, Camera, CameraOff, Users } from 'lucide-react';
 import { publishPassengerCount } from '../utils/passengerCount';
 
-const DETECTION_URL = import.meta.env.VITE_YOLO_API_URL || 'http://localhost:8000/detect';
+// Match the vision service's documented 127.0.0.1 bind address. `localhost` can
+// resolve to IPv6 (::1) while the service is only listening on IPv4.
+const DETECTION_URL = import.meta.env.VITE_YOLO_API_URL || 'http://127.0.0.1:8000/detect';
 const BUS_CAPACITY = Number(import.meta.env.VITE_BUS_CAPACITY) || 55;
 
 export default function PassengerVision() {
@@ -60,7 +62,12 @@ export default function PassengerVision() {
           publishPassengerCount(result.count);
         }
       } catch (requestError) {
-        if (!cancelled) setError(`${requestError.message}. Start the local YOLO service and check its URL.`);
+        if (!cancelled) {
+          const detail = requestError instanceof TypeError
+            ? `Cannot reach ${DETECTION_URL}. Make sure the local YOLO service is running and open its /health URL.`
+            : requestError.message;
+          setError(detail);
+        }
       }
 
       if (!cancelled) timer = window.setTimeout(detectNextFrame, 700);
