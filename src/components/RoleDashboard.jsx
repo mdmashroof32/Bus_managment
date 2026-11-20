@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Activity, ArrowUpRight, Bus, CalendarDays, CircleCheck, Clock3, MapPin, Ticket, Users } from 'lucide-react';
 import ConductorApp from './ConductorApp';
 import PassengerApp from './PassengerApp';
+import { getPassengerCount, subscribePassengerCount } from '../utils/passengerCount';
 
 const dashboardData = {
   conductor: {
@@ -11,7 +12,7 @@ const dashboardData = {
     icon: Ticket,
     metrics: [
       { label: 'Tickets validated', value: '38', detail: 'This trip', icon: CircleCheck, tone: 'green' },
-      { label: 'Passengers onboard', value: '43', detail: 'Live camera count', icon: Users, tone: 'blue' },
+      { label: 'Passengers onboard', value: '—', detail: 'Live YOLO camera count', icon: Users, tone: 'blue' },
       { label: 'Current route', value: '534-A', detail: 'EV Express', icon: Bus, tone: 'purple' },
       { label: 'Shift status', value: 'Active', detail: 'Millennium Park depot', icon: Activity, tone: 'amber' },
     ],
@@ -40,6 +41,9 @@ export default function RoleDashboard({ role }) {
   const dashboard = dashboardData[role];
   const DashboardIcon = dashboard.icon;
   const RoleApp = dashboard.app;
+  const [passengerCount, setPassengerCount] = useState(() => getPassengerCount()?.count ?? null);
+
+  useEffect(() => subscribePassengerCount((value) => setPassengerCount(value.count)), []);
 
   return (
     <div className="role-dashboard">
@@ -57,7 +61,7 @@ export default function RoleDashboard({ role }) {
           <article className="dashboard-metric" key={label}>
             <span className={`dashboard-metric-icon ${tone}`}><Icon size={18} /></span>
             <span className="dashboard-metric-label">{label}</span>
-            <strong>{value}</strong>
+            <strong>{role === 'conductor' && label === 'Passengers onboard' ? passengerCount ?? '—' : value}</strong>
             <span className="dashboard-metric-detail">{detail}</span>
           </article>
         ))}

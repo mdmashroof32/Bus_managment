@@ -6,6 +6,7 @@ import StateDashboard from './components/StateDashboard';
 import RoleDashboard from './components/RoleDashboard';
 import DriverApp from './components/DriverApp';
 import SmartBusIoTAndAI from './components/SmartBusIoTAndAI';
+import PassengerVision from './components/PassengerVision';
 import ArchitectureViewer from './components/ArchitectureViewer';
 import DatabaseManager from './components/DatabaseManager';
 import AdminLogin from './components/AdminLogin';
@@ -49,7 +50,7 @@ export default function App() {
         {activeTab === 'one-delhi' && <RoleDashboard role="user" />}
         {activeTab === 'driver' && <DriverApp />}
         {activeTab === 'conductor' && <RoleDashboard role="conductor" />}
-        {activeTab === 'iot-ai' && <SmartBusIoTAndAI />}
+        {activeTab === 'iot-ai' && <><SmartBusIoTAndAI /><PassengerVision /></>}
         {activeTab === 'database' && <DatabaseManager />}
         {activeTab === 'architecture' && <ArchitectureViewer />}
       </main>
