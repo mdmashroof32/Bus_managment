@@ -1,0 +1,56 @@
+/* Dedicated conductor sign-in and conductor-only workspace */
+.conductor-login-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 36px 20px;
+  background: radial-gradient(ellipse at 50% 0, #eaf2ff 0, #f8fafc 58%, #f1f5f9 100%);
+}
+.conductor-login-card {
+  width: min(100%, 560px);
+  padding: 38px;
+  border: 1px solid #dbe3ef;
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 24px 70px rgba(15, 23, 42, .1);
+}
+.conductor-brand, .conductor-workspace-brand { display: flex; align-items: center; gap: 13px; color: #475569; font-size: .82rem; font-weight: 800; letter-spacing: .08em; }
+.conductor-brand-icon { width: 52px; height: 52px; display: grid; place-items: center; border-radius: 15px; color: #fff; background: linear-gradient(135deg, #2563eb, #0f172a); }
+.conductor-brand strong { color: #2563eb; }
+.conductor-login-heading { margin: 38px 0 28px; }
+.conductor-shield { width: 48px; height: 48px; display: grid; place-items: center; margin-bottom: 20px; border-radius: 15px; color: #2563eb; background: #eff6ff; }
+.conductor-eyebrow { margin: 0; color: #64748b; font-size: .75rem; font-weight: 800; letter-spacing: .12em; }
+.conductor-login-heading h1 { margin: 8px 0; color: #0f172a; font-size: clamp(1.8rem, 5vw, 2.4rem); letter-spacing: -.04em; }
+.conductor-login-heading > p:last-child { margin: 0; color: #64748b; font-size: .95rem; line-height: 1.6; }
+.conductor-login-form { display: flex; flex-direction: column; gap: 10px; }
+.conductor-login-form label { color: #334155; font-size: .87rem; font-weight: 700; }
+.conductor-login-form input { width: 100%; min-height: 52px; box-sizing: border-box; padding: 13px 15px; border: 1px solid #cbd5e1; border-radius: 10px; color: #0f172a; background: #fff; font: inherit; outline: none; }
+.conductor-login-form input:focus { border-color: #2563eb; box-shadow: 0 0 0 3px rgba(37, 99, 235, .14); }
+.conductor-password-label { display: flex; align-items: center; justify-content: space-between; margin-top: 8px; color: #64748b; }
+.conductor-login-submit { display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 54px; margin-top: 12px; padding: 12px 18px; border: 0; border-radius: 11px; color: #fff; background: #1d4ed8; font: inherit; font-weight: 750; cursor: pointer; }
+.conductor-login-submit:hover { background: #1e40af; }
+.conductor-login-submit:focus-visible, .conductor-back-link:focus-visible, .conductor-login-switch:focus-visible, .conductor-workspace-logout:focus-visible { outline: 3px solid #93c5fd; outline-offset: 3px; }
+.conductor-demo-notice { margin: 20px 0 0; padding: 13px 15px; border: 1px solid #fcd34d; border-radius: 11px; color: #854d0e; background: #fffbeb; font-size: .78rem; line-height: 1.55; }
+.conductor-back-link { display: block; margin: 17px auto 0; padding: 8px; border: 0; color: #1d4ed8; background: transparent; font: inherit; font-size: .82rem; font-weight: 650; cursor: pointer; }
+.conductor-login-footer { margin: 20px 0 0; color: #64748b; font-size: .75rem; text-align: center; }
+.conductor-login-switch { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; margin-top: 18px; padding: 12px; border: 1px solid #bfdbfe; border-radius: 10px; color: #1d4ed8; background: #eff6ff; font: inherit; font-size: .82rem; font-weight: 700; cursor: pointer; }
+.conductor-login-switch:hover { background: #dbeafe; }
+.conductor-workspace { min-height: 100vh; background: #f8fafc; }
+.conductor-workspace-header { position: sticky; top: 0; z-index: 20; display: flex; align-items: center; gap: 24px; padding: 14px clamp(16px, 4vw, 48px); border-bottom: 1px solid #e2e8f0; background: #fff; box-shadow: 0 2px 10px rgba(15, 23, 42, .04); }
+.conductor-workspace-brand { flex: 1; letter-spacing: .04em; }
+.conductor-workspace-brand > div { display: flex; flex-direction: column; gap: 3px; }
+.conductor-workspace-brand > div > span { color: #64748b; font-size: .72rem; font-weight: 500; letter-spacing: 0; }
+.conductor-workspace-mark { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 12px; color: #fff; background: linear-gradient(135deg, #2563eb, #0f172a); font-size: .82rem; letter-spacing: .02em; }
+.conductor-workspace-route { padding: 8px 11px; border: 1px solid #bbf7d0; border-radius: 999px; color: #15803d; background: #f0fdf4; font-size: .68rem; font-weight: 800; letter-spacing: .04em; white-space: nowrap; }
+.conductor-workspace-logout { display: inline-flex; align-items: center; justify-content: center; gap: 7px; padding: 9px 12px; border: 1px solid #e2e8f0; border-radius: 9px; color: #475569; background: #fff; font: inherit; font-size: .8rem; font-weight: 650; cursor: pointer; }
+.conductor-workspace-logout:hover { color: #b91c1c; border-color: #fecaca; background: #fef2f2; }
+.conductor-workspace-main { width: min(100% - 40px, 1320px); margin: 0 auto; padding: 30px 0 48px; }
+@media (max-width: 600px) {
+  .conductor-login-card { padding: 25px 21px; }
+  .conductor-workspace-header { gap: 10px; padding: 12px 14px; }
+  .conductor-workspace-route { display: none; }
+  .conductor-workspace-logout { padding: 8px; font-size: .75rem; }
+  .conductor-workspace-main { width: calc(100% - 28px); padding-top: 20px; }
+}

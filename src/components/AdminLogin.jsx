@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ArrowRight, BusFront, LockKeyhole, ShieldCheck } from 'lucide-react';
 
-export default function AdminLogin({ onLogin }) {
+export default function AdminLogin({ onLogin, onConductorLogin }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -65,6 +65,10 @@ export default function AdminLogin({ onLogin }) {
             Sign in <ArrowRight size={17} />
           </button>
         </form>
+
+        <button className="conductor-login-switch" onClick={onConductorLogin} type="button">
+          Conductor? Sign in to the ticketing dashboard <ArrowRight size={16} />
+        </button>
 
         <p className="admin-login-notice">
           Demo interface: credentials are not verified. Connect a secure authentication service before using this portal with real accounts or data.
